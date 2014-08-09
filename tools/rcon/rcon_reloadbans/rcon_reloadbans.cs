@@ -1,14 +1,10 @@
-#region
-
 using System;
 using System.Net;
 using System.Threading;
 using System.Diagnostics;
 using BattleNET;
 
-#endregion
-
-namespace BattleNET_client
+namespace rcon_reloadbans
 {
     internal class Program
     {
@@ -16,45 +12,44 @@ namespace BattleNET_client
         {
             
             BattlEyeLoginCredentials loginCredentials = new BattlEyeLoginCredentials();
-            #region
-			if (args.Length == 3)
-			{
-	            loginCredentials.Host = args[0];
-	            loginCredentials.Port = Convert.ToInt32(args[1]);
-	            loginCredentials.Password = args[2];
-			}
-			else
-			{
-				Console.WriteLine("Wrong Number of Args");
-				Thread.Sleep(5000); 
-				Environment.Exit(0);
-			}
-            #endregion
+            
+            if (args.Length == 3)
+            {
+                loginCredentials.Host = IPAddress.Parse(args[0]);
+                loginCredentials.Port = Convert.ToInt32(args[1]);
+                loginCredentials.Password = args[2];
+            }
+            else
+            {
+                Console.WriteLine("Wrong Number of Args");
+                Thread.Sleep(5000); 
+                Environment.Exit(0);
+            }
             
 
             BattlEyeClient b = new BattlEyeClient(loginCredentials);
             b.BattlEyeMessageReceived += BattlEyeMessageReceived;
-			b.BattlEyeConnected += BattlEyeConnected;
+            b.BattlEyeConnected += BattlEyeConnected;
             b.BattlEyeDisconnected += BattlEyeDisconnected;
             b.ReconnectOnPacketLoss = true;
             b.Connect();
 
             if (b.Connected)
             {
-            	b.SendCommand(BattlEyeCommand.LoadBans);
-				while (b.CommandQueue > 0) { /* wait until server received packet */ };
-	            Thread.Sleep(1000); // wait 1 second  for no reason...
+                b.SendCommand(BattlEyeCommand.LoadBans);
+                while (b.CommandQueue > 0) { /* wait until server received packet */ };
+                Thread.Sleep(1000); // wait 1 second  for no reason...
             }
-			else
-			{
+            else
+            {
                 Console.WriteLine("Couldnt connect to server");
-				Console.WriteLine("Failed to reload bans");
-				Environment.Exit(0);
-			}
+                Console.WriteLine("Failed to reload bans");
+                Environment.Exit(0);
+            }
             b.Disconnect();
 
         }
-		
+        
         private static void BattlEyeConnected(BattlEyeConnectEventArgs args)
         {
             //if (args.ConnectionResult == BattlEyeConnectionResult.Success) { /* Connected successfully */ }
