@@ -170,10 +170,10 @@ class Scanner:
 				sys.exit()
 
 	def kick_ban_msg(self, template, player_name, server_name, log_file, date_time):
-		tmp = string.replace(template, "PLAYER_NAME", player_name)
-		tmp = string.replace(tmp, "SERVER_NAME", server_name)
-		tmp = string.replace(tmp, "LOG_FILE", log_file)
-		tmp = string.replace(tmp, "DATE_TIME", date_time)
+		tmp = string.replace(template, "$PLAYER_NAME", player_name)
+		tmp = string.replace(tmp, "$SERVER_NAME", server_name)
+		tmp = string.replace(tmp, "$LOG_FILE", log_file)
+		tmp = string.replace(tmp, "$DATE_TIME", date_time)
 		return tmp
 
 	def update_bans(self, logname, data, time="-1", update=False):
