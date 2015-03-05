@@ -1,5 +1,10 @@
 Important info regarding changes
 
+Version 20
+	Added logging only scan options to conf.ini
+		Look @ conf-example-log.ini for more info
+		Scan Remotecontrol = log
+
 Version 18
 	Filters Renamed -> Rules
 		New Internal File Format
