@@ -112,8 +112,8 @@ class Settings:
                     ["Scan Setpos", "setpos"],
                     ["Scan Setvariable", "setvariable"],
                     ["Scan Teamswitch", "teamswitch"],
-					["Scan Waypointcondition", "waypointcondition"],
-					["Scan Waypointstatement", "waypointstatement"],
+		    ["Scan Waypointcondition", "waypointcondition"],
+		    ["Scan Waypointstatement", "waypointstatements"],
                     ["OffSet", "OffSet"],
                     ["Ban Message", "Ban Message"],
                     ["Kick Message", "Kick Message"],
@@ -195,8 +195,8 @@ class Settings:
                                             "setpos",
                                             "setvariable",
                                             "teamswitch",
-											"waypointcondition",
-											"waypointstatement"]
+					    "waypointcondition",
+					    "waypointstatements"]
 
             server["Battleye Logs Location"] = {}
             server["Battleye Temp Logs"] = {}
