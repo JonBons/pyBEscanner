@@ -98,7 +98,7 @@ class Scanner:
 						"setvariable": os.path.join(self.backuplog_dir, "setvariable.log"),
 						"teamswitch": os.path.join(self.backuplog_dir, "teamswitch.log"),
 						"waypointcondition": os.path.join(self.backuplog_dir, "waypointcondition.log"),
-						"waypointstatement": os.path.join(self.backuplog_dir, "waypointstatement.log")}
+						"waypointstatements": os.path.join(self.backuplog_dir, "waypointstatements.log")}
 
 
 		# Create Backup Folder if it doesnt exist
