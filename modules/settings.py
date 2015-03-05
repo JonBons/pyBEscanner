@@ -58,7 +58,7 @@ class Settings:
         config.read(self.conf_file)
 
         if config.has_option("Default", "Version"):
-            if config.get("Default", "Version") != "19":
+            if config.get("Default", "Version") != "20":
                 print "-------------------------------------------------"
                 print "ERROR: Bad conf/servers.ini version"
                 print "-------------------------------------------------"
