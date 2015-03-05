@@ -162,6 +162,12 @@ class Scanner:
 				self.log(x, "bans", self.log_scanner.banlist)
 				self.log(x, "kicks", self.log_scanner.kicklist)
 				self.log(x, "unknown", self.log_scanner.unknownlist)
+			
+			elif self.server_settings[x] == "log":
+				# Logging
+				self.log(x, "bans", self.log_scanner.banlist)
+				self.log(x, "kicks", self.log_scanner.kicklist)
+				self.log(x, "unknown", self.log_scanner.unknownlist)
 
 			else:
 				print
