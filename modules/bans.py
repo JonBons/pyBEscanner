@@ -146,12 +146,12 @@ class Bans:
 			self.saveBanInfo()
 			
 	def formatMessage(self, template, player_name, server_name, log_file, date_time, guid, ip):
-		tmp = template.replace("LOG_FILE", log_file)
-		tmp = tmp.replace("DATE_TIME", date_time)
-		tmp = tmp.replace("SERVER_NAME", server_name)
-		tmp = tmp.replace("PLAYER_NAME", player_name)
-		tmp = tmp.replace("GUID", guid)
-		tmp = tmp.replace("IP", ip)
+		tmp = template.replace("$LOG_FILE", log_file)
+		tmp = tmp.replace("$DATE_TIME", date_time)
+		tmp = tmp.replace("$SERVER_NAME", server_name)
+		tmp = tmp.replace("$PLAYER_NAME", player_name)
+		tmp = tmp.replace("$GUID", guid)
+		tmp = tmp.replace("$IP", ip)
 		return tmp
 
 	def addBan(self, unique_id, info, logname, ban_template, report_template, time): #{ID,Reason}
